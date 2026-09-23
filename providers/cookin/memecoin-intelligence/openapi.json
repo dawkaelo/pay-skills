@@ -1,0 +1,434 @@
+{
+    "components": {
+        "securitySchemes": {
+            "proApiKey": {
+                "description": "Cookin Pro API key. Optional when paying per call with x402.",
+                "scheme": "bearer",
+                "type": "http"
+            }
+        }
+    },
+    "info": {
+        "description": "Real-time Solana memecoin intelligence from Cookin: token quality scores, bundle (coordinated wallet) detection, holder behavior, KOL positions, trader profiles, and deployer history.\n\nPay per call with x402 (USDC on Solana, no account or API key), or send a Pro API key as a Bearer token (1 SOL per 30 days, at https://cookin.fun/account/api-keys). A request with neither gets 402 with both options: the x402 offer in the PAYMENT-REQUIRED header and the Pro link in the body.",
+        "title": "Cookin API",
+        "version": "1.0.0"
+    },
+    "openapi": "3.1.0",
+    "paths": {
+        "/v1/devs/{address}/tokens": {
+            "get": {
+                "description": "Launch history of one token deployer: every token, bond rate, and peak market caps.",
+                "operationId": "getDevsAddressTokens",
+                "parameters": [
+                    {
+                        "description": "Deployer wallet address (base58).",
+                        "example": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+                        "in": "path",
+                        "name": "address",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Tokens per page, 1 to 100 (default 50).",
+                        "example": "50",
+                        "in": "query",
+                        "name": "limit",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Tokens to skip, for paging (default 0).",
+                        "example": "0",
+                        "in": "query",
+                        "name": "offset",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        },
+                        "description": "The requested data, in the `data` field of the envelope."
+                    },
+                    "402": {
+                        "description": "Payment required. Pay for this call with x402 (offer in the PAYMENT-REQUIRED header, USDC on Solana), or send a Pro API key."
+                    },
+                    "404": {
+                        "description": "No data for this address. A paid call is not charged."
+                    },
+                    "429": {
+                        "description": "Rate limit exceeded. See the Retry-After header."
+                    }
+                },
+                "security": [
+                    {},
+                    {
+                        "proApiKey": []
+                    }
+                ],
+                "summary": "List the launch history of one token deployer",
+                "x-payment-info": {
+                    "price": "$0.01",
+                    "pricingMode": "fixed",
+                    "protocols": [
+                        "x402"
+                    ]
+                }
+            }
+        },
+        "/v1/tokens/agents": {
+            "get": {
+                "description": "Tokens the top Cookin trading agents bought most recently, with quality signals.",
+                "operationId": "getTokensAgents",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        },
+                        "description": "The requested data, in the `data` field of the envelope."
+                    },
+                    "402": {
+                        "description": "Payment required. Pay for this call with x402 (offer in the PAYMENT-REQUIRED header, USDC on Solana), or send a Pro API key."
+                    },
+                    "404": {
+                        "description": "No data for this address. A paid call is not charged."
+                    },
+                    "429": {
+                        "description": "Rate limit exceeded. See the Retry-After header."
+                    }
+                },
+                "security": [
+                    {},
+                    {
+                        "proApiKey": []
+                    }
+                ],
+                "summary": "List tokens the top Cookin agents bought recently",
+                "x-payment-info": {
+                    "price": "$0.01",
+                    "pricingMode": "fixed",
+                    "protocols": [
+                        "x402"
+                    ]
+                }
+            }
+        },
+        "/v1/tokens/graduated": {
+            "get": {
+                "description": "Recently graduated Pump.fun tokens, with quality signals and holder behavior.",
+                "operationId": "getTokensGraduated",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        },
+                        "description": "The requested data, in the `data` field of the envelope."
+                    },
+                    "402": {
+                        "description": "Payment required. Pay for this call with x402 (offer in the PAYMENT-REQUIRED header, USDC on Solana), or send a Pro API key."
+                    },
+                    "404": {
+                        "description": "No data for this address. A paid call is not charged."
+                    },
+                    "429": {
+                        "description": "Rate limit exceeded. See the Retry-After header."
+                    }
+                },
+                "security": [
+                    {},
+                    {
+                        "proApiKey": []
+                    }
+                ],
+                "summary": "List Pump.fun tokens that recently graduated",
+                "x-payment-info": {
+                    "price": "$0.01",
+                    "pricingMode": "fixed",
+                    "protocols": [
+                        "x402"
+                    ]
+                }
+            }
+        },
+        "/v1/tokens/new": {
+            "get": {
+                "description": "Newly launched Pump.fun tokens that passed Cookin's rug filters, with quality signals.",
+                "operationId": "getTokensNew",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        },
+                        "description": "The requested data, in the `data` field of the envelope."
+                    },
+                    "402": {
+                        "description": "Payment required. Pay for this call with x402 (offer in the PAYMENT-REQUIRED header, USDC on Solana), or send a Pro API key."
+                    },
+                    "404": {
+                        "description": "No data for this address. A paid call is not charged."
+                    },
+                    "429": {
+                        "description": "Rate limit exceeded. See the Retry-After header."
+                    }
+                },
+                "security": [
+                    {},
+                    {
+                        "proApiKey": []
+                    }
+                ],
+                "summary": "List new Pump.fun launches that passed the rug filters",
+                "x-payment-info": {
+                    "price": "$0.01",
+                    "pricingMode": "fixed",
+                    "protocols": [
+                        "x402"
+                    ]
+                }
+            }
+        },
+        "/v1/tokens/pumps": {
+            "get": {
+                "description": "Pump.fun tokens currently pumping, with quality signals and holder behavior.",
+                "operationId": "getTokensPumps",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        },
+                        "description": "The requested data, in the `data` field of the envelope."
+                    },
+                    "402": {
+                        "description": "Payment required. Pay for this call with x402 (offer in the PAYMENT-REQUIRED header, USDC on Solana), or send a Pro API key."
+                    },
+                    "404": {
+                        "description": "No data for this address. A paid call is not charged."
+                    },
+                    "429": {
+                        "description": "Rate limit exceeded. See the Retry-After header."
+                    }
+                },
+                "security": [
+                    {},
+                    {
+                        "proApiKey": []
+                    }
+                ],
+                "summary": "List Pump.fun tokens that are currently pumping",
+                "x-payment-info": {
+                    "price": "$0.01",
+                    "pricingMode": "fixed",
+                    "protocols": [
+                        "x402"
+                    ]
+                }
+            }
+        },
+        "/v1/tokens/{mint}": {
+            "get": {
+                "description": "Full Cookin snapshot for one Solana token: quality score, holders, bundles (coordinated wallets), KOL positions, holder behavior cohorts, pump/dump signals, and a green/yellow/red rating per metric.",
+                "operationId": "getTokensMint",
+                "parameters": [
+                    {
+                        "description": "Solana token mint address (base58).",
+                        "example": "8RR4iSrZBzD1iqKkVTtAzs5fnSi5DyJpKkBcd2eYz9X",
+                        "in": "path",
+                        "name": "mint",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Comma-separated groups to return: meta, status, market, holders, bundles, score, cohorts, kols, signals, ratings. Omit for all groups.",
+                        "example": "meta,score,ratings",
+                        "in": "query",
+                        "name": "fields",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        },
+                        "description": "The requested data, in the `data` field of the envelope."
+                    },
+                    "402": {
+                        "description": "Payment required. Pay for this call with x402 (offer in the PAYMENT-REQUIRED header, USDC on Solana), or send a Pro API key."
+                    },
+                    "404": {
+                        "description": "No data for this address. A paid call is not charged."
+                    },
+                    "429": {
+                        "description": "Rate limit exceeded. See the Retry-After header."
+                    }
+                },
+                "security": [
+                    {},
+                    {
+                        "proApiKey": []
+                    }
+                ],
+                "summary": "Fetch the full Cookin snapshot and ratings for one token",
+                "x-payment-info": {
+                    "price": "$0.02",
+                    "pricingMode": "fixed",
+                    "protocols": [
+                        "x402"
+                    ]
+                }
+            }
+        },
+        "/v1/tokens/{mint}/trades": {
+            "get": {
+                "description": "Recent trades for one Solana token, each with the trader's history: PnL, win rate, bundle membership, and smart-money flag.",
+                "operationId": "getTokensMintTrades",
+                "parameters": [
+                    {
+                        "description": "Solana token mint address (base58).",
+                        "example": "8RR4iSrZBzD1iqKkVTtAzs5fnSi5DyJpKkBcd2eYz9X",
+                        "in": "path",
+                        "name": "mint",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        },
+                        "description": "The requested data, in the `data` field of the envelope."
+                    },
+                    "402": {
+                        "description": "Payment required. Pay for this call with x402 (offer in the PAYMENT-REQUIRED header, USDC on Solana), or send a Pro API key."
+                    },
+                    "404": {
+                        "description": "No data for this address. A paid call is not charged."
+                    },
+                    "429": {
+                        "description": "Rate limit exceeded. See the Retry-After header."
+                    }
+                },
+                "security": [
+                    {},
+                    {
+                        "proApiKey": []
+                    }
+                ],
+                "summary": "Fetch recent trades for one token with trader history",
+                "x-payment-info": {
+                    "price": "$0.01",
+                    "pricingMode": "fixed",
+                    "protocols": [
+                        "x402"
+                    ]
+                }
+            }
+        },
+        "/v1/traders/{address}": {
+            "get": {
+                "description": "Trading profile of one Solana wallet: PnL, ROI, win rate, bundle and smart-money flags.",
+                "operationId": "getTradersAddress",
+                "parameters": [
+                    {
+                        "description": "Solana wallet address (base58).",
+                        "example": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+                        "in": "path",
+                        "name": "address",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        },
+                        "description": "The requested data, in the `data` field of the envelope."
+                    },
+                    "402": {
+                        "description": "Payment required. Pay for this call with x402 (offer in the PAYMENT-REQUIRED header, USDC on Solana), or send a Pro API key."
+                    },
+                    "404": {
+                        "description": "No data for this address. A paid call is not charged."
+                    },
+                    "429": {
+                        "description": "Rate limit exceeded. See the Retry-After header."
+                    }
+                },
+                "security": [
+                    {},
+                    {
+                        "proApiKey": []
+                    }
+                ],
+                "summary": "Fetch the trading profile of one Solana wallet",
+                "x-payment-info": {
+                    "price": "$0.01",
+                    "pricingMode": "fixed",
+                    "protocols": [
+                        "x402"
+                    ]
+                }
+            }
+        }
+    },
+    "servers": [
+        {
+            "url": "https://api.cookin.fun"
+        }
+    ]
+}
