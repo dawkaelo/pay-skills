@@ -9,19 +9,31 @@
                         "properties": {
                             "p25": {
                                 "description": "25th percentile of this deployer's peak market caps, in USD.",
-                                "type": "integer"
+                                "type": [
+                                    "integer",
+                                    "null"
+                                ]
                             },
                             "p50": {
                                 "description": "Median of this deployer's peak market caps, in USD.",
-                                "type": "integer"
+                                "type": [
+                                    "integer",
+                                    "null"
+                                ]
                             },
                             "p75": {
                                 "description": "75th percentile of this deployer's peak market caps, in USD.",
-                                "type": "integer"
+                                "type": [
+                                    "integer",
+                                    "null"
+                                ]
                             },
                             "p90": {
                                 "description": "90th percentile of this deployer's peak market caps, in USD.",
-                                "type": "integer"
+                                "type": [
+                                    "integer",
+                                    "null"
+                                ]
                             }
                         },
                         "type": "object"
@@ -53,7 +65,10 @@
                     },
                     "best_ath_mcap": {
                         "description": "Highest peak market cap across all launches, in USD.",
-                        "type": "integer"
+                        "type": [
+                            "integer",
+                            "null"
+                        ]
                     },
                     "bond_rate": {
                         "description": "Share of launches that graduated, 0 to 100.",
@@ -76,20 +91,32 @@
                     "ath_at": {
                         "description": "Time of that peak.",
                         "format": "date-time",
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     },
                     "ath_mcap": {
                         "description": "Highest market cap reached, in USD. Null when never recorded.",
-                        "type": "integer"
+                        "type": [
+                            "integer",
+                            "null"
+                        ]
                     },
                     "ath_slot": {
                         "description": "Solana slot of that peak.",
-                        "type": "integer"
+                        "type": [
+                            "integer",
+                            "null"
+                        ]
                     },
                     "deployed_at": {
                         "description": "Launch time.",
                         "format": "date-time",
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     },
                     "dex_paid": {
                         "description": "True once a DexScreener order was confirmed.",
@@ -101,16 +128,25 @@
                     },
                     "image_uri": {
                         "description": "Token image URL.",
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     },
                     "launchpad": {
                         "description": "Launchpad the token was deployed on.",
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     },
                     "migrated_at": {
                         "description": "When it graduated.",
                         "format": "date-time",
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     },
                     "mint": {
                         "description": "Token mint address.",
@@ -132,31 +168,52 @@
                 "properties": {
                     "image": {
                         "description": "True when the image hash matches an earlier token.",
-                        "type": "boolean"
+                        "type": [
+                            "boolean",
+                            "null"
+                        ]
                     },
                     "name": {
                         "description": "True when the name matches an earlier token.",
-                        "type": "boolean"
+                        "type": [
+                            "boolean",
+                            "null"
+                        ]
                     },
                     "symbol": {
                         "description": "True when the symbol matches an earlier token.",
-                        "type": "boolean"
+                        "type": [
+                            "boolean",
+                            "null"
+                        ]
                     },
                     "symbol_name": {
                         "description": "True when the symbol and name together matches an earlier token.",
-                        "type": "boolean"
+                        "type": [
+                            "boolean",
+                            "null"
+                        ]
                     },
                     "telegram": {
                         "description": "True when the Telegram link matches an earlier token.",
-                        "type": "boolean"
+                        "type": [
+                            "boolean",
+                            "null"
+                        ]
                     },
                     "twitter": {
                         "description": "True when the Twitter link matches an earlier token.",
-                        "type": "boolean"
+                        "type": [
+                            "boolean",
+                            "null"
+                        ]
                     },
                     "website": {
                         "description": "True when the website matches an earlier token.",
-                        "type": "boolean"
+                        "type": [
+                            "boolean",
+                            "null"
+                        ]
                     }
                 },
                 "type": "object"
@@ -346,16 +403,25 @@
                     },
                     "conviction_score": {
                         "description": "Weighted holder conviction.",
-                        "type": "number"
+                        "type": [
+                            "number",
+                            "null"
+                        ]
                     },
                     "deployed_at": {
                         "description": "Launch time.",
                         "format": "date-time",
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     },
                     "description": {
                         "description": "Token description from its metadata.",
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     },
                     "dex_paid": {
                         "description": "True once a DexScreener order was confirmed.",
@@ -371,7 +437,10 @@
                     },
                     "dump_conditions_met": {
                         "description": "Dump conditions currently true.",
-                        "type": "integer"
+                        "type": [
+                            "integer",
+                            "null"
+                        ]
                     },
                     "duplication": {
                         "$ref": "#/components/schemas/Duplication"
@@ -382,7 +451,10 @@
                     },
                     "image_uri": {
                         "description": "Token image URL.",
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     },
                     "kols_in_count": {
                         "description": "Tracked KOL wallets currently holding.",
@@ -390,7 +462,10 @@
                     },
                     "launchpad": {
                         "description": "Launchpad the token was deployed on.",
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     },
                     "mcap": {
                         "description": "Current market cap in USD.",
@@ -406,7 +481,10 @@
                     },
                     "pump_conditions_met": {
                         "description": "Pump conditions currently true.",
-                        "type": "integer"
+                        "type": [
+                            "integer",
+                            "null"
+                        ]
                     },
                     "ratings": {
                         "$ref": "#/components/schemas/Ratings"
@@ -421,15 +499,24 @@
                     },
                     "telegram": {
                         "description": "Telegram link from the token metadata.",
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     },
                     "twitter": {
                         "description": "Twitter link from the token metadata.",
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     },
                     "website": {
                         "description": "Website link from the token metadata.",
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     }
                 },
                 "type": "object"
@@ -706,7 +793,10 @@
                                     "properties": {
                                         "expected_sell_slot": {
                                             "description": "Slot this KOL is expected to sell at.",
-                                            "type": "integer"
+                                            "type": [
+                                                "integer",
+                                                "null"
+                                            ]
                                         },
                                         "pct_of_supply": {
                                             "description": "Share of supply this KOL holds.",
@@ -714,11 +804,17 @@
                                         },
                                         "sell_impact": {
                                             "description": "What this KOL's past exits did to prices.",
-                                            "type": "number"
+                                            "type": [
+                                                "number",
+                                                "null"
+                                            ]
                                         },
                                         "user_name": {
                                             "description": "KOL name as Cookin tracks it.",
-                                            "type": "string"
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
                                         },
                                         "wallet": {
                                             "description": "KOL wallet.",
@@ -738,7 +834,10 @@
                             "ath_at": {
                                 "description": "Time of that peak. Null before the first trade.",
                                 "format": "date-time",
-                                "type": "string"
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
                             },
                             "ath_mcap": {
                                 "description": "Highest market cap reached, in USD.",
@@ -761,23 +860,38 @@
                             "deployed_at": {
                                 "description": "Launch time.",
                                 "format": "date-time",
-                                "type": "string"
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
                             },
                             "deployer": {
                                 "description": "Wallet that deployed the token.",
-                                "type": "string"
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
                             },
                             "description": {
                                 "description": "Token description from its metadata.",
-                                "type": "string"
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
                             },
                             "image_uri": {
                                 "description": "Token image URL.",
-                                "type": "string"
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
                             },
                             "launchpad": {
                                 "description": "Launchpad the token was deployed on, for example pumpfun.",
-                                "type": "string"
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
                             },
                             "mint": {
                                 "description": "Token mint address.",
@@ -785,23 +899,38 @@
                             },
                             "name": {
                                 "description": "Token name.",
-                                "type": "string"
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
                             },
                             "symbol": {
                                 "description": "Token symbol.",
-                                "type": "string"
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
                             },
                             "telegram": {
                                 "description": "Telegram link from the token metadata.",
-                                "type": "string"
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
                             },
                             "twitter": {
                                 "description": "Twitter link from the token metadata.",
-                                "type": "string"
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
                             },
                             "website": {
                                 "description": "Website link from the token metadata.",
-                                "type": "string"
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
                             }
                         },
                         "type": "object"
@@ -822,7 +951,10 @@
                             },
                             "conviction_score": {
                                 "description": "Weighted holder conviction.",
-                                "type": "number"
+                                "type": [
+                                    "number",
+                                    "null"
+                                ]
                             },
                             "cooktimer_slots": {
                                 "description": "Expected slots before the average holder sells.",
@@ -860,11 +992,17 @@
                         "properties": {
                             "dump_conditions_met": {
                                 "description": "Dump conditions currently true.",
-                                "type": "integer"
+                                "type": [
+                                    "integer",
+                                    "null"
+                                ]
                             },
                             "pump_conditions_met": {
                                 "description": "Pump conditions currently true.",
-                                "type": "integer"
+                                "type": [
+                                    "integer",
+                                    "null"
+                                ]
                             }
                         },
                         "type": "object"
@@ -879,7 +1017,10 @@
                             "dex_paid_at": {
                                 "description": "When the DexScreener order was confirmed.",
                                 "format": "date-time",
-                                "type": "string"
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
                             },
                             "duplication": {
                                 "$ref": "#/components/schemas/Duplication"
@@ -895,7 +1036,10 @@
                             "migrated_at": {
                                 "description": "When it graduated.",
                                 "format": "date-time",
-                                "type": "string"
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
                             }
                         },
                         "type": "object"
@@ -908,15 +1052,24 @@
                 "properties": {
                     "avg_hold_slots": {
                         "description": "Slots the trader typically holds for.",
-                        "type": "number"
+                        "type": [
+                            "number",
+                            "null"
+                        ]
                     },
                     "bundle_id": {
                         "description": "Identifier of that group.",
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     },
                     "bundle_name": {
                         "description": "Name of that group.",
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     },
                     "bundled": {
                         "description": "True when this trader belongs to a coordinated group.",
@@ -924,15 +1077,24 @@
                     },
                     "bundled_trades_rate": {
                         "description": "Share of the trader's trades that were bundled.",
-                        "type": "number"
+                        "type": [
+                            "number",
+                            "null"
+                        ]
                     },
                     "buys_count": {
                         "description": "Buys the trader had made before, at this trade.",
-                        "type": "integer"
+                        "type": [
+                            "integer",
+                            "null"
+                        ]
                     },
                     "healthy_coins_rate": {
                         "description": "Share of the trader's past picks that survived.",
-                        "type": "number"
+                        "type": [
+                            "number",
+                            "null"
+                        ]
                     },
                     "is_buy": {
                         "description": "True for a buy, false for a sell.",
@@ -948,11 +1110,17 @@
                     },
                     "roi": {
                         "description": "Trader's lifetime return on investment at this trade.",
-                        "type": "number"
+                        "type": [
+                            "number",
+                            "null"
+                        ]
                     },
                     "sell_impact": {
                         "description": "What the trader's past exits did to prices.",
-                        "type": "number"
+                        "type": [
+                            "number",
+                            "null"
+                        ]
                     },
                     "signature": {
                         "description": "Solana transaction signature.",
@@ -973,7 +1141,10 @@
                     "timestamp": {
                         "description": "When the trade happened.",
                         "format": "date-time",
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     },
                     "token_amount": {
                         "description": "Tokens moved.",
@@ -981,7 +1152,10 @@
                     },
                     "total_buys_sol": {
                         "description": "SOL the trader had ever spent buying, at this trade.",
-                        "type": "number"
+                        "type": [
+                            "number",
+                            "null"
+                        ]
                     },
                     "unique_id": {
                         "description": "Stable id for this trade.",
@@ -993,19 +1167,31 @@
                     },
                     "user_name": {
                         "description": "Trader name, when Cookin tracks one.",
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     },
                     "user_pnl": {
                         "description": "Trader's lifetime PnL in SOL at this trade.",
-                        "type": "number"
+                        "type": [
+                            "number",
+                            "null"
+                        ]
                     },
                     "user_sol_balance": {
                         "description": "Trader's SOL balance at this trade.",
-                        "type": "number"
+                        "type": [
+                            "number",
+                            "null"
+                        ]
                     },
                     "win_rate": {
                         "description": "Trader's win rate at this trade.",
-                        "type": "number"
+                        "type": [
+                            "number",
+                            "null"
+                        ]
                     }
                 },
                 "type": "object"
@@ -1015,32 +1201,53 @@
                 "properties": {
                     "avg_hold_slots": {
                         "description": "Slots this wallet typically holds for.",
-                        "type": "integer"
+                        "type": [
+                            "integer",
+                            "null"
+                        ]
                     },
                     "bundled_trades_rate": {
                         "description": "Share of trades made inside a coordinated group.",
-                        "type": "number"
+                        "type": [
+                            "number",
+                            "null"
+                        ]
                     },
                     "healthy_coins_rate": {
                         "description": "Share of past picks that survived.",
-                        "type": "number"
+                        "type": [
+                            "number",
+                            "null"
+                        ]
                     },
                     "last_active": {
                         "description": "Last trade Cookin saw from this wallet.",
                         "format": "date-time",
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     },
                     "median_hold_slots": {
                         "description": "Median slots held.",
-                        "type": "integer"
+                        "type": [
+                            "integer",
+                            "null"
+                        ]
                     },
                     "name": {
                         "description": "Trader name, when Cookin tracks one.",
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     },
                     "pnl_sol": {
                         "description": "Lifetime profit and loss, in SOL. Can be negative.",
-                        "type": "number"
+                        "type": [
+                            "number",
+                            "null"
+                        ]
                     },
                     "recent_mints": {
                         "description": "Most recent tokens traded.",
@@ -1052,11 +1259,17 @@
                     },
                     "roi": {
                         "description": "Lifetime return on investment, as a ratio.",
-                        "type": "number"
+                        "type": [
+                            "number",
+                            "null"
+                        ]
                     },
                     "sell_impact": {
                         "description": "What this wallet's exits typically do to prices.",
-                        "type": "number"
+                        "type": [
+                            "number",
+                            "null"
+                        ]
                     },
                     "smart_money": {
                         "description": "True when Cookin classes this wallet as smart money.",
@@ -1064,7 +1277,10 @@
                     },
                     "total_buys_sol": {
                         "description": "SOL ever spent buying.",
-                        "type": "number"
+                        "type": [
+                            "number",
+                            "null"
+                        ]
                     },
                     "user_address": {
                         "description": "Wallet address.",
@@ -1072,7 +1288,10 @@
                     },
                     "win_rate": {
                         "description": "Share of trades closed in profit.",
-                        "type": "number"
+                        "type": [
+                            "number",
+                            "null"
+                        ]
                     }
                 },
                 "type": "object"
